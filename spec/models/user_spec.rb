@@ -32,6 +32,7 @@ describe User do
       valid_email_user.should be_valid
     end
   end
+
   it "should reject invalid email addresses" do
     addresses = %w[user@foo,com user_at_foo.org example.user@foo.]
     addresses.each do |address|
@@ -122,6 +123,7 @@ describe User do
       matching_user.should == @user
     end
   end
+
   describe "remember me" do
 
     before(:each) do
