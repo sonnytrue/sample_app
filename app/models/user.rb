@@ -24,7 +24,6 @@ class User < ActiveRecord::Base
     self.remember_token = encrypt("#{salt}--#{id}--#{Time.now.utc}")
     save_without_validation
   end
-
   
   def self.authenticate(email, submitted_password)
     user = find_by_email(email)
@@ -34,22 +33,22 @@ class User < ActiveRecord::Base
   
   private
 
-  def encrypt_password
-    unless password.nil?
-      self.salt = make_salt
-      self.encrypted_password = encrypt(password)
+    def encrypt_password
+      unless password.nil?
+        self.salt = make_salt
+        self.encrypted_password = encrypt(password)
+      end
     end
-  end
 
-  def encrypt(string)
-    secure_hash("#{salt}#{string}")
-  end
+    def encrypt(string)
+      secure_hash("#{salt}#{string}")
+    end
 
-  def make_salt
-    secure_hash("#{Time.now.utc}#{password}")
-  end
+    def make_salt
+      secure_hash("#{Time.now.utc}#{password}")
+    end
 
-  def secure_hash(string)
-    Digest::SHA2.hexdigest(string)
-  end
+    def secure_hash(string)
+      Digest::SHA2.hexdigest(string)
+    end
 end
