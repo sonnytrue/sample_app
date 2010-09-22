@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome to the Sample App!"
+      flash[:success] = "Welcome to the CMMS Sample App!"
       redirect_to @user
     else
       @title = "Sign up"
@@ -48,8 +48,6 @@ class UsersController < ApplicationController
     flash[:success] = "User destroyed."
     redirect_to users_path
   end
-
-
 
   private
 
