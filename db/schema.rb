@@ -9,7 +9,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100901075903) do
+ActiveRecord::Schema.define(:version => 20100923034323) do
+
+  create_table "equipment", :force => true do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.integer  "serial_no"
+    t.integer  "model_no"
+    t.date     "date_purchased"
+    t.decimal  "amount"
+    t.string   "description"
+    t.string   "location"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.decimal  "cost",           :precision => 8, :scale => 2, :default => 0.0
+  end
+
+  add_index "equipment", ["user_id"], :name => "index_equipment_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"

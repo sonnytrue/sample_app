@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  user_id: 1
+  serial_no: 1
+  model_no: 1
+  date_purchased: 2010-09-23
+  amount: 9.99
+  description: MyString
+  location: MyString
+
+two:
+  name: MyString
+  user_id: 1
+  serial_no: 1
+  model_no: 1
+  date_purchased: 2010-09-23
+  amount: 9.99
+  description: MyString
+  location: MyString
