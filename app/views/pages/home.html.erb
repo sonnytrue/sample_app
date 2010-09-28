@@ -1,7 +1,33 @@
-<h1>CMMS Sample App</h1>
-<p>
-This is the home page for the CMMS sample application.
-</p>
+<table class="profile">
+  <tr>
+    <td class="main">
+      <h2>CMMS Sample App</h2>
+      <p>
+        This is the home page for the CMMS sample application.
+      </p>
 
-<%= link_to "Sign in!", signin_path, :class => "signin_button round" %>
+    </td>
+    <td class="sidebar round">
+      <h3>Sign in</h3>
+
+      <% form_for(:session, :url => sessions_path) do |f| %>
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.text_field :email %>
+        </div>
+        <div class="field">
+          <%= f.label :password %><br />
+          <%= f.password_field :password %>
+        </div>
+        <div class="actions">
+          <%= f.submit "Sign in" %>
+        </div>
+      <% end %>
+    </td>
+  </tr>
+</table>
+
+
+
+<!--<%= link_to "Sign in!", signin_path, :class => "signin_button round" %>-->
 

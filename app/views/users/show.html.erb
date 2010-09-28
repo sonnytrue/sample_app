@@ -2,13 +2,27 @@
   <tr>
     <td class="main">
       <h2>
-       <%= h @user.name %>
+        <%= h @user.name %>
       </h2>
     </td>
     <td class="sidebar round">
       <strong>Name</strong> <%= h @user.name %><br />
-      <strong>URL</strong>  <%= link_to user_path(@user), @user %>
+      <strong>URL</strong>  <%= link_to user_path(@user), @user %><br />
     </td>
   </tr>
+  <tr>
+    <td class ="main" align="left">
+      <ul class="navigation round">
+        <% if current_user.admin? %>
+          Admin Tool:
+          <li> <%= link_to "User Signup", signup_path %></li>
+          <li><%= link_to "Users", users_path %></li>
+        <%end%>
+      </ul>
+    </td>
+
+  </tr>
 </table>
+
+
 
